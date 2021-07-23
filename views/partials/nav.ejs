@@ -2,28 +2,32 @@
     <link rel="stylesheet" href="/stylesheets/siwg.css">
   <% } %>
 </head>
-<body>
-  <nav>
-    
-    <div id="top-nav">
-      <div>
-        Potpurri of Ideas
-      </div>
-      <div>
-        <% if (user) { %>
+<nav>
+  <div id="top-nav">
+    <div>
+      <a id="about-link" href="https://github.com/jaehyun1009/jokes-project" target="_blank">About</a>
+    </div>
+    <div>
+      Potpurri of Ideas
+    </div>
+    <div>
+      <% if (user) { %>
+      <a href="">
         <img class="profile-image small"
           src="<%= user.profile.avatar %>" 
-          alt="<%= user.profile.name %> avatar">  
-        <a href="/auth/logout">
-          <button id="logout" type="submit">Logout</button>
-        </a>
-        <% } else { %>
-        <a href="/auth/google" class="siwg-link">
-          <button type="submit" class="siwg">
-            <img id="siwg-image" alt="Sign in with Google" />
-          </button>
-        </a>
-        <% } %>
-      </div>
+          alt="<%= user.profile.name %> avatar">
+      </a>  
+      <a href="/auth/logout">
+        <button id="logout" type="submit">Logout</button>
+      </a>
+      <% } else { %>
+      <a href="/auth/google" class="siwg-link">
+        <button type="submit" class="siwg">
+          <img id="siwg-image" alt="Sign in with Google" />
+        </button>
+      </a>
+      <% } %>
     </div>
-  </nav>
+  </div>
+</nav>
+
