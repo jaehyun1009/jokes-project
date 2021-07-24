@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import * as jokeCtrl from '../controllers/jokes.js'
+import * as jokesCtrl from '../controllers/jokes.js'
 
 export {
   router
@@ -7,4 +7,8 @@ export {
 
 const router = Router()
 
-router.get('/', jokeCtrl.index)
+router.get('/', jokesCtrl.index)
+router.get('/new', jokesCtrl.new)
+router.get('/:id', jokesCtrl.show)
+
+router.post('/', jokesCtrl.create)

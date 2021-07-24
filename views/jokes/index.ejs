@@ -3,10 +3,14 @@
 <%- include('../partials/subnav') %>
 
 <main>
+  <h1>Jokes</h1>
+  <% if (user){ %> 
+    <a id="new-joke-button" href='/jokes/new'>New Joke</a>
+  <% } %> 
   <% if (jokes.length > 0) { %>
-    <p>Yay!</p>
+    <>
   <% } else { %>
-    <p>No Jokes</p>
+    <p>No Jokes have been posted yet. <a href='/jokes/new'>Click here to create a joke!</a></p>
   <% } %>
 </main>
 
