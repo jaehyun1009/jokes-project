@@ -5,14 +5,14 @@
 <nav>
   <div id="top-nav">
     <div>
-      <a id="about-link" href="https://github.com/jaehyun1009/jokes-project" target="_blank">About</a>
+      <a id="about-link" href="/profiles">View Users</a>
     </div>
     <div>
-      Potpurri of Ideas
+      <a id="title-link" href="/">Potpurri of Ideas</a>
     </div>
     <div>
       <% if (user) { %>
-      <a href="">
+      <a href="/profiles/<%= user._id %>">
         <img class="profile-image small"
           src="<%= user.profile.avatar %>" 
           alt="<%= user.profile.name %> avatar">

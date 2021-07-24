@@ -1,9 +1,9 @@
 <%- include('./partials/html-head') %>
 <%- include('./partials/nav') %>
+<%- include('./partials/subnav') %>
 
 <main>
-  <%- include('./partials/subnav') %>
-  <h1>hello, <%= user ? user.profile.name : "friend" %></h1>
+  <h1>Main Menu <%= user ? user.profile.name : "friend" %></h1>
 </main>
 
 <%- include('./partials/footer') %>

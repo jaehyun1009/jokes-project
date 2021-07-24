@@ -65,6 +65,10 @@ nav {
   text-align: right;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 #about-link {
   color: white;
   font-size: 3rem;
@@ -72,8 +76,11 @@ nav {
 }
 
 #about-link:hover {
-  text-decoration: none;
   color: crimson;
+}
+
+#title-link {
+  color: black;
 }
 
 #logout {
