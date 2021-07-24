@@ -8,7 +8,7 @@ export {
 function index(req, res){
     Profile.find({}).then(profiles => {
         res.render('profiles/index', {
-            title: "Users",
+            title: "Profiles",
             user: req.user,
             profiles
         })
@@ -22,7 +22,7 @@ function show(req, res){
         res.render('profiles/show', {
             title: `${profile.name}'s Profile`,
             user: req.user,
-            profile: req.params.id
+            profile
         })
     }).catch(error => {
         res.redirect('/profiles')

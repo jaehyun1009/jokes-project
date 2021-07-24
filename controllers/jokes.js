@@ -5,8 +5,13 @@ export {
 }
 
 function index(req, res){
-    res.render('jokes/index', {
-        title: "Jokes Page",
-        user: req.user ? req.user : null
+    Joke.find({}).then(jokes => {
+        res.render('jokes/index', {
+            title: "Jokes",
+            user: req.user,
+            jokes
+        })
+    }).catch(error => {
+        res.redirect('/')
     })
 }
