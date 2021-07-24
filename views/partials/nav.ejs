@@ -12,7 +12,7 @@
     </div>
     <div>
       <% if (user) { %>
-      <a href="/profiles/<%= user._id %>">
+      <a href="/profiles/<%= user.profile._id %>">
         <img class="profile-image small"
           src="<%= user.profile.avatar %>" 
           alt="<%= user.profile.name %> avatar">

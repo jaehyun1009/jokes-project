@@ -14,9 +14,11 @@ function index(req, res){
 
 function show(req, res){
     Profile.findById(req.params.id).then(profile => {
+        console.log(profile)
         res.render('profiles/show', {
-            title: `Single Profile`,
-            user: req.user
+            title: `${profile.name}'s Profile`,
+            user: req.user,
+            profile: req.params.id
         })
     }).catch(error => {
         res.redirect('/profiles')
