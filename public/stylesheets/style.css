@@ -51,8 +51,12 @@ nav {
   width: 50px;
 }
 
-.large {
+.medium {
   width: 200px;
+}
+
+.large {
+  width: 300px;
 }
 
 #top-nav {
@@ -195,4 +199,10 @@ h3 {
   overflow: hidden;
   transition: max-height 0.2s ease-out;
   background-color: #f1f1f1;
+}
+
+#profile-left {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
 }

@@ -9,9 +9,15 @@
             <div class="col mt-4">
                 <div class="card" style="width: 200px;">
                     <a href="/profiles/<%= profile._id %>">
-                        <img class="profile-image large"
-                        src="<%= profile.avatar %>" 
-                        alt="<%= profile.name %> avatar">
+                        <% if (profile.avatar) { %>
+                            <img class="profile-image medium" 
+                                src="<%= profile.avatar %>" 
+                                alt="<%= profile.name %>'s avatar">
+                        <% } else {%>
+                            <img class="profile-image medium"
+                                src="/images/icons/user.png" 
+                                alt="A placeholder avatar">
+                        <% } %> 
                     </a>
                     <div class="card-body">
                         <p class="card-title fs-5 text-dark mb-0">
