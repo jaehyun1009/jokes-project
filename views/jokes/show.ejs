@@ -1,10 +1,24 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
+<script>
+  function showPunchline(){
+    document.getElementById('show-punchline').style.display = 'none'
+    punchline.hidden = false
+  }
+</script>
+
 <main>
   <a class="action-link" href="/jokes">Back</a>
-  Setup <%= joke.setup %>
-  Punchline <%= joke.punchline %>
+  <h2><%= joke.setup %></h2>
+  <div class="bottom-section">
+  <% if (joke.punchline) { %>
+    <button class="action-button small-button" id="show-punchline" onclick="showPunchline()">Show Punchline</button>
+    <p id="punchline" hidden><%= joke.punchline %></p>
+  <% } %>
+  <br><br>
+    <h3>Comments</h3>
+  </div>
 </main>
 
 <%- include('../partials/footer') %>
