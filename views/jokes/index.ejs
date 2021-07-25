@@ -8,16 +8,36 @@
     <a class="action-button" href='/jokes/new'>New Joke</a>
   <% } %> 
   <% if (jokes.length > 0) { %>
-    <table>
-      <% jokes.forEach(joke => { %>
-        <tr>
-          <td><p><%= joke.creator.name %></p></td>
-          <td><p><%= joke.setup %></p></td>
-          <td><p><%= joke.likes %></p></td>
-          <td><a href="/jokes/<%= joke._id %>">Details</a></td>
-        </tr>
-      <% }) %>
-    </table>
+  <div class="container">
+    <div class="col-13">
+      <table class="table table-striped table-margin">
+        <thead>
+          <tr>
+            <th scope="col" class="col-3"><p>Creator Name</p></th>
+            <th scope="col" class="col-8"></th>
+            <th scope="col" class="col-2"><p>Likes</p></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+        <% jokes.forEach((joke, idx) => { %>
+          <tr>
+            <td><p><%= joke.creator.name %> </p></td>
+            <td><p><%= joke.setup %></p></td>
+            <td><p><%= joke.likes %></p></td>
+            <td><a style="font-size:2rem;" href="/jokes/<%= joke._id %>">Details</a></td>
+            <% if (user?.profile._id.equals(joke.creator._id)){ %> 
+            <td><a style="font-size:2rem;" href="/jokes">Delete</a></td>
+            <% } else { %> 
+            <td></td>
+            <% } %>
+          </tr>
+        <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
   <% } else { %>
     <p>No Jokes have been posted yet. <% if (user) { %> <a href='/jokes/new'>Click here to create a joke!</a><% } %></p>
   <% } %>

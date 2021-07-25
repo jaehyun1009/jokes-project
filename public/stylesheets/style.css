@@ -130,3 +130,7 @@ p {
   Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 2rem;
 }
+
+.table-margin {
+  margin: 30px 0 0 0;
+}

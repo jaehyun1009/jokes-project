@@ -25,6 +25,8 @@ function show(req, res){
             title: `Joke #${req.params.id}`,
             user: req.user,
             joke,
+            //console.log(user.profile._id)
+            //console.log(joke.creator._id)
         })
     }).catch(error => {
         res.redirect('/jokes')
