@@ -4,13 +4,22 @@
 
 <main>
   <h1>Jokes</h1>
-  <% if (user){ %> 
-    <a id="new-joke-button" href='/jokes/new'>New Joke</a>
+  <% if (user && jokes.length > 0){ %> 
+    <a class="action-button" href='/jokes/new'>New Joke</a>
   <% } %> 
   <% if (jokes.length > 0) { %>
-    <>
+    <table>
+      <% jokes.forEach(joke => { %>
+        <tr>
+          <td><p><%= joke.creator.name %></p></td>
+          <td><p><%= joke.setup %></p></td>
+          <td><p><%= joke.likes %></p></td>
+          <td><a href="/jokes/<%= joke._id %>">Details</a></td>
+        </tr>
+      <% }) %>
+    </table>
   <% } else { %>
-    <p>No Jokes have been posted yet. <a href='/jokes/new'>Click here to create a joke!</a></p>
+    <p>No Jokes have been posted yet. <% if (user) { %> <a href='/jokes/new'>Click here to create a joke!</a><% } %></p>
   <% } %>
 </main>
 

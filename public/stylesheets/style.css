@@ -119,7 +119,7 @@ h1 {
   text-align: center;
 }
 
-#new-joke-button {
+.action-button {
   width: 95%;
   text-align: left;
   font-size: 3rem;

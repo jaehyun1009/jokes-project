@@ -1,9 +1,17 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
-<%- include('../partials/subnav') %>
 
 <main>
-  New Joke
+  <h1>Create a New Joke</h1>
+  <a class="action-button" href="/jokes">Back</a>
+  <form action="/jokes" method="POST">    
+    <p style="font-size:2.5rem;">Setup (required)</p>
+    <p><textarea name="setup" rows="5" cols="50"></textarea><p>
+    <br>
+    <p style="font-size:2.5rem;">Punchline</p>
+    <p><textarea name="punchline" rows="5" cols="50"></textarea></p>
+    <button type="submit">Post</button>
+  </form>
 </main>
 
 <%- include('../partials/footer') %>

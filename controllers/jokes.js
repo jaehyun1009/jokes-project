@@ -8,7 +8,7 @@ export {
 }
 
 function index(req, res){
-    Joke.find({}).then(jokes => {
+    Joke.find({}).populate('creator').then(jokes => {
         res.render('jokes/index', {
             title: "Jokes",
             user: req.user,
@@ -20,11 +20,11 @@ function index(req, res){
 }
 
 function show(req, res){
-    Joke.findById(req.params.id).then(joke => {
+    Joke.findById(req.params.id).populate('creator').then(joke => {
         res.render('jokes/show', {
             title: `Joke #${req.params.id}`,
             user: req.user,
-            joke
+            joke,
         })
     }).catch(error => {
         res.redirect('/jokes')
@@ -39,5 +39,16 @@ function newJoke(req, res){
 }
 
 function create(req, res){
+
+    if (!req.user){
+        res.redirect('/jokes')
+    }
+
+    req.body.creator = req.user.profile._id
+    Joke.create(req.body).then(() => {
+        res.redirect('/jokes')
+    }).catch(error => {
+        res.redirect('/jokes/new')
+    })
 
 }

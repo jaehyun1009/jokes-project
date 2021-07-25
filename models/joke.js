@@ -13,7 +13,6 @@ const jokeSchema = new Schema({
     },
     punchline: {
         type: String,
-        required: true
     },
     likes: {
         type: Number,
