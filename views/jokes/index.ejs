@@ -5,7 +5,7 @@
 <main>
   <h1>Jokes</h1>
   <% if (user && jokes.length > 0){ %> 
-    <a class="action-button" href='/jokes/new'>New Joke</a>
+    <a class="action-link" href='/jokes/new'>New Joke</a>
   <% } %> 
   <% if (jokes.length > 0) { %>
   <div class="container">
@@ -21,14 +21,16 @@
           </tr>
         </thead>
         <tbody>
-        <% jokes.forEach((joke, idx) => { %>
+        <% jokes.forEach(joke => { %>
           <tr>
             <td><p><%= joke.creator.name %> </p></td>
             <td><p><%= joke.setup %></p></td>
             <td><p><%= joke.likes %></p></td>
-            <td><a style="font-size:2rem;" href="/jokes/<%= joke._id %>">Details</a></td>
-            <% if (user?.profile._id.equals(joke.creator._id)){ %> 
-            <td><a style="font-size:2rem;" href="/jokes">Delete</a></td>
+            <td><button class="action-button small-button" onclick="location.href='/jokes/<%= joke._id %>'">Details</button></td>
+            <% if (user?.profile._id.equals(joke.creator._id)){ %>
+            <form action="/jokes/<%= joke._id %>?_method=DELETE" method="POST">
+              <td><button class="action-button small-button" type="submit">Delete</button></td>
+            </form>
             <% } else { %> 
             <td></td>
             <% } %>

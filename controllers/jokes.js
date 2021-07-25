@@ -4,7 +4,8 @@ export {
     index,
     show,
     newJoke as new,
-    create
+    create,
+    deleteJoke as delete
 }
 
 function index(req, res){
@@ -53,4 +54,10 @@ function create(req, res){
         res.redirect('/jokes/new')
     })
 
+}
+
+function deleteJoke(req, res){
+    Joke.findByIdAndDelete(req.params.id).then(joke => {
+        res.redirect('/jokes')
+    })
 }

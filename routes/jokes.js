@@ -12,3 +12,5 @@ router.get('/new', jokesCtrl.new)
 router.get('/:id', jokesCtrl.show)
 
 router.post('/', jokesCtrl.create)
+
+router.delete('/:id', jokesCtrl.delete)

@@ -119,10 +119,30 @@ h1 {
   text-align: center;
 }
 
-.action-button {
+.action-link {
   width: 95%;
   text-align: left;
   font-size: 3rem;
+}
+
+.action-button {
+  border: none;
+  background-color: transparent;
+  color: dodgerblue;
+  vertical-align: middle;
+  font-size: 3rem;
+}
+
+.action-button:hover {
+  color: #0000EE;
+}
+
+.small-button {
+  font-size: 2rem;
+}
+
+#logout:hover {
+  color: crimson;
 }
 
 p {
