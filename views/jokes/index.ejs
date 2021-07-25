@@ -2,7 +2,7 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1>Jokes</h1>
+  <h1 class="sub-title">Jokes</h1>
   <% if (user && jokes.length > 0){ %> 
     <a class="action-link" href='/jokes/new'>New Joke</a>
   <% } %> 
@@ -22,7 +22,7 @@
         <tbody>
         <% jokes.forEach(joke => { %>
           <tr>
-            <td><p><%= joke.creator.name %> </p></td>
+            <td><p><a href="/profiles/<%= joke.creator._id %>"><%= joke.creator.name %></a></p></td>
             <td><p><%= joke.setup %></p></td>
             <td><p><%= joke.likes %></p></td>
             <td><button class="action-button small-button" onclick="location.href='/jokes/<%= joke._id %>'">Details</button></td>

@@ -27,11 +27,20 @@ body {
   margin: 0;
 }
 
+#main-menu {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 nav {
   width: 100%;
+  position: fixed;
   background-color: cornflowerblue;
   display: flex;
-  height: 100px;
+  height: 90px;
 }
 
 .profile-image {
@@ -109,6 +118,11 @@ main {
 h1 {
   font-size: 6rem;
   text-align: center;
+}
+
+.sub-title {
+  font-size: 5rem;
+  padding: 105px 0 0 0;
 }
 
 .action-link {
