@@ -23,7 +23,7 @@
           <tr>
             <td><p><a href="/profiles/<%= joke.creator._id %>"><%= joke.creator.name %></a></p></td>
             <td><p><a href="/jokes/<%= joke._id %>"><%= joke.setup %></a></p></td>
-            <td><p><%= joke.likes %></p></td>
+            <td><p><%= joke.likedBy.length %></p></td>
             <% if (user?.profile._id.equals(joke.creator._id)){ %>
             <form action="/jokes/<%= joke._id %>?_method=DELETE" method="POST">
               <td><button class="action-button small-button" type="submit">Delete</button></td>

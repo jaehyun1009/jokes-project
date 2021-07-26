@@ -38,6 +38,7 @@ body {
 nav {
   width: 100%;
   position: fixed;
+  z-index: 1;
   background-color: cornflowerblue;
   display: flex;
   height: 90px;
@@ -189,10 +190,6 @@ p {
   left: 15px;
 }
 
-.comment-section {
-  z-index: -1;
-}
-
 h2 {
   font-size: 4.5rem;
 }
@@ -219,14 +216,14 @@ h3 {
 }
 
 #profile-middle {
-  width: 40vw;
+  width: 37.5vw;
   height: 85vh;
   overflow: auto;
   padding: 0 20px;
 }
 
 #profile-right {
-  width: 40vw;
+  width: 37.5vw;
   height: 85vh;
   overflow: auto;
   padding: 0 20px;

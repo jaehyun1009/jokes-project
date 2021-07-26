@@ -11,10 +11,6 @@ const commentSchema = new Schema({
         type: String,
         required: true
     },
-    likes: {
-        type: Number,
-        default: 0
-    },
     commenter: {
         type: Schema.Types.ObjectId,
         ref: "Profile"

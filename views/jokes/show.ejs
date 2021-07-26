@@ -9,7 +9,7 @@
 </script>
 
 <main class="page">
-  <div class="like-button"><h2><%= joke.likes %> Likes</h2><button class="action-button">Like!</button></div>
+  <div class="like-button"><h2><%= joke.likedBy.length %> Likes</h2><button class="action-button">Like!</button></div>
   <div class="main-content">
     <h2 class="sub-title"><%= joke.setup %></h2>
     <div class="bottom-section">
@@ -20,7 +20,7 @@
     </div>
   </div>
   <br><br>
-  <div class="comment-section col-8"">
+  <div class="comment-section col-8">
     <h3>Comments</h3>
     <br>
     <div>
@@ -36,21 +36,24 @@
         <tr>
           <th scope="col" class="col-3"><p>Comment By</p></th>
           <th scope="col" class="col-8"></th>
-          <th scope="col" class="col-2"><p>Likes</p></th>
+          <th scope="col"></th>
           <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
       <% comments.forEach(comment => { %>
         <tr>
-          <td><p><%= comment.commenter.name %></p></td>
+          <td><p><a href='/profiles/<%= comment.commenter._id %>' target="_blank"><%= comment.commenter.name %></a></p></td>
           <td><p><%= comment.content %></p></td>
-          <td><p><%= comment.likes %></p></td>
           <% if (user?.profile._id.equals(comment.commenter._id)){ %>
-          <form>
-            <td><button class="action-button small-button" type="submit">Delete</button></td>
-          </form>
+          <td><form>
+            <button class="action-button small-button">Edit</button>
+          </form></td>
+          <td><form>
+            <button class="action-button small-button">Delete</button>
+          </form></td>
           <% } else { %>
+          <td></td>
           <td></td>
           <% } %>
         </tr>
