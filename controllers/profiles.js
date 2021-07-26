@@ -1,4 +1,5 @@
 import { Profile } from '../models/profile.js'
+import { Joke } from '../models/joke.js'
 
 export {
     index,
@@ -19,10 +20,15 @@ function index(req, res){
 
 function show(req, res){
     Profile.findById(req.params.id).then(profile => {
-        res.render('profiles/show', {
-            title: `${profile.name}'s Profile`,
-            user: req.user,
-            profile
+        Joke.find({}).then(jokes => {
+            console.log(profile)
+            console.log(jokes)
+            res.render('profiles/show', {
+                title: `${profile.name}'s Profile`,
+                user: req.user,
+                profile,
+                jokes
+            })
         })
     }).catch(error => {
         res.redirect('/profiles')

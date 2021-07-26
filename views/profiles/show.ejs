@@ -2,7 +2,7 @@
 <%- include('../partials/nav') %>
 
 <main>
-    <div class="sub-title">
+    <div class="sub-title" id="single-profile">
         <div id="profile-left">
             <% if (profile.avatar) { %>
                 <img class="profile-image large" 
@@ -14,20 +14,35 @@
                     alt="A placeholder avatar">
             <% } %>
             <h1><%= profile.name %></h1>
-            <button class="action-button" id="follow-button">Follow</button>
+            <div id="profile-bottom">
+                <div><p style="font-align:center;">0 Likes</p></div>
+                
+                <% if (user && user?.profile._id.equals(profile._id)) { %>
+                    <div><button class="action-button" id="follow-button">Follow</button></div>
+                <% } %>
+            </div>
         </div>
-        <div>
-            <div>
-
-            </div>
-            <div>
-                <div>
-
-                </div>
-                <div>
-
-                </div>
-            </div>
+        <div id="profile-middle">
+            <h1>Jokes</h1>
+            <table class="table table-striped table-margin">
+                <tbody>
+            <% jokes.forEach(joke => { %>
+                <% if (joke.creator.equals(profile._id)){ %>
+                    <tr>
+                        <td><p>Joke</p></td>
+                    </tr>
+                <% } %>
+            <% }) %>
+                </tbody>
+            </table>
+        </div>
+        <div id="profile-right">
+            <h1>Trivia</h1>
+            <table class="table table-bordered table-striped table-margin">
+                <% jokes.forEach(joke => { %>
+                    <% if (joke.creator.equals(profile._id)){ %>
+                    <% } %>
+                <% }) %>
         </div>
     </div>
 </main>
