@@ -1,6 +1,5 @@
 import { Joke } from '../models/joke.js'
 import { Comment } from '../models/comment.js'
-import { Profile } from '../models/profile.js'
 
 export {
     index,
@@ -10,7 +9,8 @@ export {
     deleteJoke as delete,
     createComment,
     editComment,
-    updateComment
+    updateComment,
+    deleteComment
 }
 
 function index(req, res){
@@ -105,8 +105,8 @@ function editComment(req, res){
 }
 
 function updateComment(req, res){
-    Joke.findById(req.params.jokeId).then(joke => {
-        Comment.findByIdAndUpdate(req.params.commentId, req.body, {new: true}).then(comment => {
+    Joke.findById(req.params.jokeId).then(() => {
+        Comment.findByIdAndUpdate(req.params.commentId, req.body, {new: true}).then(() => {
             res.redirect(`/jokes/${req.params.jokeId}`)
         })
     }).catch(error => {
@@ -115,5 +115,11 @@ function updateComment(req, res){
 }
 
 function deleteComment(req, res){
-
+    Joke.findById(req.params.jokeId).then(() => {
+        Comment.findByIdAndDelete(req.params.commentId).then(() => {
+            res.redirect(`/jokes/${req.params.jokeId}`)
+        })
+    }).catch(error => {
+        res.redirect(`/jokes`)
+    })
 }
