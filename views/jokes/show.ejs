@@ -46,9 +46,7 @@
           <td><p><a href='/profiles/<%= comment.commenter._id %>' target="_blank"><%= comment.commenter.name %></a></p></td>
           <td><p><%= comment.content %></p></td>
           <% if (user?.profile._id.equals(comment.commenter._id)){ %>
-          <td><form>
-            <button class="action-button small-button">Edit</button>
-          </form></td>
+          <td><a class="action-link" href='/jokes/<%= joke._id %>/comments/<%= comment._id %>/edit'>Edit</a></td>
           <td><form>
             <button class="action-button small-button">Delete</button>
           </form></td>

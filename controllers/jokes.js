@@ -8,7 +8,8 @@ export {
     newJoke as new,
     create,
     deleteJoke as delete,
-    createComment
+    createComment,
+    editComment
 }
 
 function index(req, res){
@@ -62,7 +63,7 @@ function create(req, res){
 }
 
 function deleteJoke(req, res){
-    Joke.findByIdAndDelete(req.params.id).then(joke => {
+    Joke.findByIdAndDelete(req.params.id).then(() => {
         res.redirect('/jokes')
     })
 }
@@ -82,5 +83,28 @@ function createComment(req, res){
     }).catch(error => {
         res.redirect(`${req.params.id}`)
     })
+
+}
+
+function editComment(req, res){
+    Joke.findById(req.params.jokeId).then(joke => {
+        Comment.findById(req.params.commentId).then(comment => {
+            res.render(`jokes/edit`, {
+                title: `Edit comment #${comment._id}`,
+                user: req.user,
+                joke,
+                comment
+            })
+        })
+    }).catch(error => {
+        res.redirect(`jokes`)
+    })
+}
+
+function updateComment(req, res){
+
+}
+
+function deleteComment(req, res){
 
 }

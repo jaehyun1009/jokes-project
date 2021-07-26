@@ -10,6 +10,7 @@ const router = Router()
 router.get('/', jokesCtrl.index)
 router.get('/new', jokesCtrl.new)
 router.get('/:id', jokesCtrl.show)
+router.get('/:jokeId/comments/:commentId/edit', jokesCtrl.editComment)
 
 router.post('/', isLoggedIn, jokesCtrl.create)
 router.post('/:id', isLoggedIn, jokesCtrl.createComment)

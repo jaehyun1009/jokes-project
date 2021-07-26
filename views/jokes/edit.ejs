@@ -1,0 +1,13 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main class="page">
+  <h1 class="sub-title">Edit Comment</h1>
+  <a class="action-link" href="/jokes">Back</a>
+  <form action="/jokes/<%= joke._id %>/comments/<%= comment._id %>?_method=PUT" method="POST">    
+    <p><textarea name="content" rows="5" cols="50"><%= comment.content %></textarea></p>
+    <button class="action-button small-button" type="submit">Edit</button>
+  </form>
+</main>
+
+<%- include('../partials/footer') %>
