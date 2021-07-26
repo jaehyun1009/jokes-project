@@ -15,7 +15,7 @@
             <% } %>
             <h1><%= profile.name %></h1>
             <div id="profile-bottom">
-                <div><p style="font-align:center;">0 Likes</p></div>
+                <div><p>0 Likes</p></div>
                 
                 <% if (user && user?.profile._id.equals(profile._id)) { %>
                     <div><button class="action-button" id="follow-button">Follow</button></div>
