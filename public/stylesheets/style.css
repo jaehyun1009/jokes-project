@@ -172,8 +172,25 @@ p {
   width: 80%;
 }
 
-.comment-section {
+.main-content {
+  width: 60vw;
+  height: 35vh;
+  border-radius: 25%;
+  background-color: lightskyblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
+.like-button {
+  position: fixed;
+  top: 105px;
+  left: 15px;
+}
+
+.comment-section {
+  z-index: -1;
 }
 
 h2 {

@@ -9,7 +9,7 @@
 </script>
 
 <main class="page">
-  <a class="sub-title action-link" href="/jokes">Back</a>
+  <div class="like-button"><h2><%= joke.likes %> Likes</h2><button class="action-button">Like!</button></div>
   <div class="main-content">
     <h2 class="sub-title"><%= joke.setup %></h2>
     <div class="bottom-section">
@@ -20,13 +20,13 @@
     </div>
   </div>
   <br><br>
-  <div class="comment-section">
+  <div class="comment-section col-8"">
     <h3>Comments</h3>
     <br>
     <div>
       <% if (user) { %>
       <form action="/jokes/<%= joke._id %>" method="POST">
-        <p style="font-size:2rem;"><textarea name="content" rows="5" cols="100"></textarea><p>
+        <p style="font-size:2rem;"><textarea name="content" rows="4" cols="80"></textarea><p>
         <button class="action-button small-button">Post</button>
       </form>
       <% } %>
