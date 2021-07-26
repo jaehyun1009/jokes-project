@@ -78,7 +78,6 @@ function createComment(req, res){
     Comment.create(req.body).then(comment => {
         Joke.findById(req.params.id).then(joke => {
             joke.comments.push(comment._id)
-            console.log(joke)
             joke.save().then(() => {
                 res.redirect(`${joke._id}`)
             })

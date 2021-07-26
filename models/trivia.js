@@ -20,8 +20,8 @@ const triviaSchema = new Schema({
         ref: "Profile"
     },
     likedBy: [{
-      type: Schema.Types.ObjectId,
-      ref: "Profile"
+        type: Schema.Types.ObjectId,
+        ref: "Profile"
     }],
     comments: [{
         type: Schema.Types.ObjectId,
