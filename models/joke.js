@@ -24,7 +24,7 @@ const jokeSchema = new Schema({
     },
     comments: [{
         type: Schema.Types.ObjectId,
-        ref: "Comments"
+        ref: "Comment"
     }]
 }, {
     timestamps: true

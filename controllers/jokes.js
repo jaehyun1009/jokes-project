@@ -1,5 +1,6 @@
 import { Joke } from '../models/joke.js'
 import { Comment } from '../models/comment.js'
+import { Profile } from '../models/profile.js'
 
 export {
     index,
@@ -23,14 +24,18 @@ function index(req, res){
 }
 
 function show(req, res){
-    Joke.findById(req.params.id).populate('creator').then(joke => {
+    Joke.findById(req.params.id).populate('creator').populate({
+        path: 'comments',
+        populate: {
+            path: 'commenter'
+        }
+    }).then(joke => {
         res.render('jokes/show', {
             title: `Joke #${req.params.id}`,
             user: req.user,
             joke,
+            comments: joke.comments
         })
-    }).catch(error => {
-        res.redirect('/jokes')
     })
 }
 
