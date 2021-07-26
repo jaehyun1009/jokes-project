@@ -9,11 +9,11 @@ export {
 }
 
 function index(req, res){
-  Trivia.find({}).populate('creator').then(trivias => {
+  Trivia.find({}).populate('creator').then(trivia => {
       res.render('trivia/index', {
           title: "Trivia",
           user: req.user,
-          trivia: trivias
+          trivia
       })
   }).catch(error => {
       res.redirect('/')
@@ -55,7 +55,7 @@ function create(req, res){
 }
 
 function deleteTrivia(req, res){
-  Trivia.findByIdAndDelete(req.params.id).then(trivia => {
+  Trivia.findByIdAndDelete(req.params.id).then(() => {
       res.redirect('/trivia')
   })
 }

@@ -1,11 +1,13 @@
 import { Joke } from '../models/joke.js'
+import { Comment } from '../models/comment.js'
 
 export {
     index,
     show,
     newJoke as new,
     create,
-    deleteJoke as delete
+    deleteJoke as delete,
+    createComment
 }
 
 function index(req, res){
@@ -58,4 +60,22 @@ function deleteJoke(req, res){
     Joke.findByIdAndDelete(req.params.id).then(joke => {
         res.redirect('/jokes')
     })
+}
+
+function createComment(req, res){
+
+    req.body.commenter = req.user.profile._id
+
+    Comment.create(req.body).then(comment => {
+        Joke.findById(req.params.id).then(joke => {
+            joke.comments.push(comment._id)
+            console.log(joke)
+            joke.save().then(() => {
+                res.redirect(`${joke._id}`)
+            })
+        })
+    }).catch(error => {
+        res.redirect(`${req.params.id}`)
+    })
+
 }

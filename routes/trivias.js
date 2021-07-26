@@ -11,6 +11,11 @@ router.get('/', triviaCtrl.index)
 router.get('/new', triviaCtrl.new)
 router.get('/:id', triviaCtrl.show)
 
-router.post('/', triviaCtrl.create)
+router.post('/', isLoggedIn, triviaCtrl.create)
 
-router.delete('/:id', triviaCtrl.delete)
+router.delete('/:id', isLoggedIn, triviaCtrl.delete)
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) return next();
+  res.redirect("/auth/google");
+}

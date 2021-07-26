@@ -1,10 +1,12 @@
-import mongoose, { Schema } from 'mongoose'
+import mongoose from 'mongoose'
 
 export {
     Comment
 }
 
-const commentSchema = mongoose.Schema({
+const Schema = mongoose.Schema
+
+const commentSchema = new Schema({
     content: {
         type: String,
         required: true

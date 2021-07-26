@@ -11,6 +11,12 @@ router.get('/', jokesCtrl.index)
 router.get('/new', jokesCtrl.new)
 router.get('/:id', jokesCtrl.show)
 
-router.post('/', jokesCtrl.create)
+router.post('/', isLoggedIn, jokesCtrl.create)
+router.post('/:id', isLoggedIn, jokesCtrl.createComment)
 
-router.delete('/:id', jokesCtrl.delete)
+router.delete('/:id', isLoggedIn, jokesCtrl.delete)
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) return next();
+  res.redirect("/auth/google");
+}
