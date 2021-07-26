@@ -1,5 +1,6 @@
 import { Profile } from '../models/profile.js'
 import { Joke } from '../models/joke.js'
+import { Trivia } from '../models/trivia.js'
 
 export {
     index,
@@ -21,13 +22,14 @@ function index(req, res){
 function show(req, res){
     Profile.findById(req.params.id).then(profile => {
         Joke.find({}).then(jokes => {
-            console.log(profile)
-            console.log(jokes)
-            res.render('profiles/show', {
-                title: `${profile.name}'s Profile`,
-                user: req.user,
-                profile,
-                jokes
+            Trivia.find({}).then(trivias => {
+                res.render('profiles/show', {
+                    title: `${profile.name}'s Profile`,
+                    user: req.user,
+                    profile,
+                    jokes,
+                    trivia: trivias
+                })
             })
         })
     }).catch(error => {

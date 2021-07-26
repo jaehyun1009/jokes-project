@@ -178,13 +178,8 @@ h3 {
 }
 
 #single-profile{
-  background-color: blue;
   display: flex;
   flex-direction: row;
-}
-
-.single-profile > div{
-  background-color: blue;
 }
 
 #profile-left {
@@ -201,10 +196,14 @@ h3 {
 
 #profile-middle {
   width: 40vw;
-  background-color: yellow;
+  height: 85vh;
+  overflow: auto;
+  padding: 0 20px;
 }
 
 #profile-right {
   width: 40vw;
-  background-color: green;
+  height: 85vh;
+  overflow: auto;
+  padding: 0 20px;
 }

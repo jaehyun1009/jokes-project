@@ -1,0 +1,22 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<script>
+  function showAnswer(){
+    document.getElementById('show-answer').style.display = 'none'
+    answer.hidden = false
+  }
+</script>
+
+<main>
+  <a class="sub-title action-link" href="/trivia">Back</a>
+  <h2><%= trivia.question %></h2>
+  <div class="bottom-section">
+  <button class="action-button small-button" id="show-answer" onclick="showAnswer()">Show answer</button>
+  <p id="answer" hidden><%= trivia.answer %></p>
+  <br><br>
+    <h3>Comments</h3>
+  </div>
+</main>
+
+<%- include('../partials/footer') %>

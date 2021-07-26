@@ -2,30 +2,30 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1 class="sub-title">Jokes</h1>
-  <% if (user && jokes.length > 0){ %> 
-    <a class="action-link" href='/jokes/new'>New Joke</a>
+  <h1 class="sub-title">Trivia</h1>
+  <% if (user && trivia.length > 0){ %> 
+    <a class="action-link" href='/trivia/new'>New Trivia</a>
   <% } %> 
-  <% if (jokes.length > 0) { %>
+  <% if (trivia.length > 0) { %>
   <div class="container">
     <div class="col-13">
       <table class="table table-striped table-margin">
         <thead>
           <tr>
             <th scope="col" class="col-3"><p>Creator Name</p></th>
-            <th scope="col" class="col-8"><p>Joke Setup</p></th>
+            <th scope="col" class="col-8"><p>Question</p></th>
             <th scope="col" class="col-2"><p>Likes</p></th>
             <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
-        <% jokes.forEach(joke => { %>
+        <% trivia.forEach(t => { %>
           <tr>
-            <td><p><a href="/profiles/<%= joke.creator._id %>"><%= joke.creator.name %></a></p></td>
-            <td><p><a href="/jokes/<%= joke._id %>"><%= joke.setup %></a></p></td>
-            <td><p><%= joke.likes %></p></td>
-            <% if (user?.profile._id.equals(joke.creator._id)){ %>
-            <form action="/jokes/<%= joke._id %>?_method=DELETE" method="POST">
+            <td><p><a href="/profiles/<%= t.creator._id %>"><%= t.creator.name %></a></p></td>
+            <td><p><a href="/trivia/<%= t._id %>"><%= t.question %></a></p></td>
+            <td><p><%= t.likes %></p></td>
+            <% if (user?.profile._id.equals(t.creator._id)){ %>
+            <form action="/trivia/<%= t._id %>?_method=DELETE" method="POST">
               <td><button class="action-button small-button" type="submit">Delete</button></td>
             </form>
             <% } else { %> 
@@ -38,7 +38,7 @@
     </div>
   </div>
   <% } else { %>
-    <p>No Jokes have been posted yet. <% if (user) { %> <a href='/jokes/new'>Click here to create a joke!</a><% } %></p>
+    <p>No trivia has been posted yet. <% if (user) { %> <a href='/trivia/new'>Click here to create a trivia!</a><% } %></p>
   <% } %>
 </main>
 

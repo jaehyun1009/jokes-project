@@ -1,0 +1,17 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <h1>Create a New Trivia</h1>
+  <a class="sub-title action-link" href="/trivia">Back</a>
+  <form action="/trivia" method="POST">    
+    <p style="font-size:2.5rem;">Question (required)</p>
+    <p><textarea name="question" rows="5" cols="50"></textarea><p>
+    <br>
+    <p style="font-size:2.5rem;">Answer (required)</p>
+    <p><textarea name="answer" rows="5" cols="50"></textarea></p>
+    <button class="action-button small-button" type="submit">Post</button>
+  </form>
+</main>
+
+<%- include('../partials/footer') %>

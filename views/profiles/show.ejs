@@ -24,25 +24,31 @@
         </div>
         <div id="profile-middle">
             <h1>Jokes</h1>
-            <table class="table table-striped table-margin">
+            <table class="table table-bordered table-striped mb-0">
                 <tbody>
-            <% jokes.forEach(joke => { %>
-                <% if (joke.creator.equals(profile._id)){ %>
-                    <tr>
-                        <td><p>Joke</p></td>
-                    </tr>
-                <% } %>
-            <% }) %>
+                <% jokes.forEach(joke => { %>
+                    <% if (joke.creator.equals(profile._id)){ %>
+                        <tr>
+                            <td><p><a href="/jokes/<%= joke._id %>" target="_blank"><%= joke.setup %></a></p></td>
+                        </tr>
+                    <% } %>
+                <% }) %>
                 </tbody>
             </table>
         </div>
         <div id="profile-right">
             <h1>Trivia</h1>
-            <table class="table table-bordered table-striped table-margin">
-                <% jokes.forEach(joke => { %>
-                    <% if (joke.creator.equals(profile._id)){ %>
+            <table class="table table-bordered table-striped mb-0">
+                <tbody>
+                <% trivia.forEach(t => { %>
+                    <% if (t.creator.equals(profile._id)){ %>
+                        <tr>
+                            <td><p><a href="/trivia/<%= t._id %>" target="_blank"><%= t.question %></a></p></td>
+                        </tr>
                     <% } %>
                 <% }) %>
+                </tbody>
+            </table>
         </div>
     </div>
 </main>

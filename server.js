@@ -22,6 +22,7 @@ import { router as indexRouter } from './routes/index.js'
 import { router as authRouter } from './routes/auth.js'
 import { router as profileRouter } from './routes/profiles.js'
 import { router as jokeRouter } from './routes/jokes.js'
+import { router as triviaRouter } from './routes/trivias.js'
 
 // view engine setup
 app.set(
@@ -62,6 +63,7 @@ app.use('/', indexRouter)
 app.use('/auth', authRouter)
 app.use('/profiles', profileRouter)
 app.use('/jokes', jokeRouter)
+app.use('/trivia', triviaRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
