@@ -15,6 +15,8 @@ router.get('/:jokeId/comments/:commentId/edit', jokesCtrl.editComment)
 router.post('/', isLoggedIn, jokesCtrl.create)
 router.post('/:id', isLoggedIn, jokesCtrl.createComment)
 
+router.put('/:jokeId/comments/:commentId', jokesCtrl.updateComment)
+
 router.delete('/:id', isLoggedIn, jokesCtrl.delete)
 
 function isLoggedIn(req, res, next) {

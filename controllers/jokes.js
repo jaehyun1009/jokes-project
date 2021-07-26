@@ -9,7 +9,8 @@ export {
     create,
     deleteJoke as delete,
     createComment,
-    editComment
+    editComment,
+    updateComment
 }
 
 function index(req, res){
@@ -37,6 +38,8 @@ function show(req, res){
             joke,
             comments: joke.comments
         })
+    }).catch(error => {
+        res.redirect('/jokes')
     })
 }
 
@@ -81,7 +84,7 @@ function createComment(req, res){
             })
         })
     }).catch(error => {
-        res.redirect(`${req.params.id}`)
+        res.redirect(`/jokes`)
     })
 
 }
@@ -97,12 +100,18 @@ function editComment(req, res){
             })
         })
     }).catch(error => {
-        res.redirect(`jokes`)
+        res.redirect(`/jokes`)
     })
 }
 
 function updateComment(req, res){
-
+    Joke.findById(req.params.jokeId).then(joke => {
+        Comment.findByIdAndUpdate(req.params.commentId, req.body, {new: true}).then(comment => {
+            res.redirect(`/jokes/${req.params.jokeId}`)
+        })
+    }).catch(error => {
+        res.redirect(`/jokes`)
+    })
 }
 
 function deleteComment(req, res){
