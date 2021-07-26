@@ -1,11 +1,11 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<main>
+<main class="page">
   <h1 class="sub-title">Trivia</h1>
   <% if (user && trivia.length > 0){ %> 
     <a class="action-link" href='/trivia/new'>New Trivia</a>
-  <% } %> 
+  <% } %>
   <% if (trivia.length > 0) { %>
   <div class="container">
     <div class="col-13">

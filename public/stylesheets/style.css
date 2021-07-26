@@ -126,6 +126,9 @@ h1 {
 
 .sub-title {
   font-size: 5rem;
+}
+
+.page {
   padding: 105px 0 0 0;
 }
 
@@ -169,8 +172,12 @@ p {
   width: 80%;
 }
 
+.comment-section {
+
+}
+
 h2 {
-  font-size: 4rem;
+  font-size: 4.5rem;
 }
 
 h3 {

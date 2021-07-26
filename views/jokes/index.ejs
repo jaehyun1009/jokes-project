@@ -1,7 +1,7 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<main>
+<main class="page">
   <h1 class="sub-title">Jokes</h1>
   <% if (user && jokes.length > 0){ %>
     <a class="action-link" href='/jokes/new'>New Joke</a>
@@ -13,7 +13,7 @@
         <thead>
           <tr>
             <th scope="col" class="col-3"><p>Creator Name</p></th>
-            <th scope="col" class="col-8"><p>Joke Setup</p></th>
+            <th scope="col" class="col-8"><p>Joke</p></th>
             <th scope="col" class="col-2"><p>Likes</p></th>
             <th scope="col"></th>
           </tr>
@@ -28,7 +28,7 @@
             <form action="/jokes/<%= joke._id %>?_method=DELETE" method="POST">
               <td><button class="action-button small-button" type="submit">Delete</button></td>
             </form>
-            <% } else { %> 
+            <% } else { %>
             <td></td>
             <% } %>
           </tr>
