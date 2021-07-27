@@ -9,9 +9,12 @@
 </script>
 
 <main class="page">
-  <% if (user && !user?.profile._id.equals(joke.creator._id)){ %>
-    <div class="like-button"><h2><%= joke.likedBy.length %> Likes</h2><button class="action-button">Like Joke!</button></div>
+  
+  <div class="like-button"><h2><%= joke.likedBy.length %> &hearts;</h2>
+  <% if (user && !user?.profile._id.equals(joke.creator._id)){ %> 
+    <button class="action-button">Like!</button>
   <% } %>
+  </div>
   <div class="main-content">
     <h2 class="sub-title"><%= joke.setup %></h2>
     <div class="bottom-section">

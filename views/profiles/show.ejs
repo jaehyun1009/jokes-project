@@ -15,16 +15,23 @@
             <% } %>
             <h1><%= profile.name %></h1>
             <div id="profile-bottom">
-                <div><p>0 Likes</p></div>
+                <div><p>0 &hearts;</p></div>
                 
-                <% if (user && !user?.profile._id.equals(profile._id)) { %>
-                    <div><button class="action-button" id="follow-button">Follow</button></div>
+                <% if (!user?.profile._id.equals(profile._id) && !profile.followedBy.includes(user?.profile._id)) { %>
+                    <div><form>
+                        <button class="action-button" id="follow-button">Follow</button>
+                    </form></div>
+                <% } %>
+                <% if (!user?.profile._id.equals(profile._id) && profile.followedBy.includes(user?.profile._id)) { %>
+                    <div><form>
+                        <button class="action-button" id="follow-button">Follow</button>
+                    </form></div>
                 <% } %>
             </div>
         </div>
         <div id="profile-middle">
             <h1>Jokes</h1>
-            <table class="table table-bordered table-striped mb-0">
+            <table class="table table-striped mb-0">
                 <tbody>
                 <% jokes.forEach(joke => { %>
                     <% if (joke.creator.equals(profile._id)){ %>
