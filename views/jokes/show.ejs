@@ -11,8 +11,17 @@
 <main class="page">
   
   <div class="like-button"><h2><%= joke.likedBy.length %> &hearts;</h2>
-  <% if (user && !user?.profile._id.equals(joke.creator._id)){ %> 
-    <button class="action-button">Like!</button>
+  <% if (user){ %>
+    <% if (!user?.profile._id.equals(joke.creator._id) && !joke.likedBy.includes(user?.profile._id)) { %>
+      <div>
+        <a href="/jokes/<%= joke._id %>/like"><h3>Like!</h3></a>
+      </div>
+    <% } %>
+    <% if (!user?.profile._id.equals(joke.creator._id) && joke.likedBy.includes(user?.profile._id)) { %>
+      <div>
+        <a href="/jokes/<%= joke._id %>/unlike"><h3>unlike...</h3></a>
+      </div>
+    <% } %>
   <% } %>
   </div>
   <div class="main-content">

@@ -9,7 +9,20 @@
 </script>
 
 <main class="page">
-  <div class="like-button"><h2><%= trivia.likedBy.length %> Likes</h2><button class="action-button">Like!</button></div>
+  <div class="like-button"><h2><%= trivia.likedBy.length %> &hearts;</h2>
+  <% if (user){ %>
+    <% if (!user?.profile._id.equals(trivia.creator._id) && !trivia.likedBy.includes(user?.profile._id)) { %>
+      <div>
+        <a href="/trivia/<%= trivia._id %>/like"><h3>Like!</h3></a>
+      </div>
+    <% } %>
+    <% if (!user?.profile._id.equals(trivia.creator._id) && trivia.likedBy.includes(user?.profile._id)) { %>
+      <div>
+        <a href="/trivia/<%= trivia._id %>/unlike"><h3>unlike...</h3></a>
+      </div>
+    <% } %>
+  <% } %>
+  </div>
   <div class="main-content">
     <h2 class="sub-title"><%= trivia.question %></h2>
     <div class="bottom-section">

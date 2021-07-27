@@ -10,7 +10,9 @@ export {
     createComment,
     editComment,
     updateComment,
-    deleteComment
+    deleteComment,
+    like,
+    unlike
 }
 
 function index(req, res){
@@ -120,5 +122,27 @@ function deleteComment(req, res){
         })
     }).catch(error => {
         res.redirect(`/jokes`)
+    })
+}
+
+function like(req, res){
+    Joke.findById(req.params.id).then(joke => {
+        joke.likedBy.push(req.user.profile)
+        joke.save().then(() => {
+            res.redirect(`/jokes/${req.params.id}`)
+        })
+    }).catch(error => {
+        res.redirect('/jokes')
+    })
+}
+
+function unlike(req, res){
+    Joke.findById(req.params.id).then(joke => {
+        joke.likedBy.remove({_id: req.user.profile._id})
+        joke.save().then(() => {
+            res.redirect(`/jokes/${req.params.id}`)
+        })
+    }).catch(error => {
+        res.redirect('/jokes')
     })
 }

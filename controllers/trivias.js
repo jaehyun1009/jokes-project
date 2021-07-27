@@ -10,7 +10,9 @@ export {
     createComment,
     editComment,
     updateComment,
-    deleteComment
+    deleteComment,
+    like,
+    unlike
 }
 
 function index(req, res){
@@ -121,4 +123,26 @@ function deleteComment(req, res){
   }).catch(error => {
       res.redirect(`/trivia`)
   })
+}
+
+function like(req, res){
+    Trivia.findById(req.params.id).then(trivia => {
+        trivia.likedBy.push(req.user.profile)
+        trivia.save().then(() => {
+            res.redirect(`/trivia/${req.params.id}`)
+        })
+    }).catch(error => {
+        res.redirect('/trivia')
+    })
+}
+
+function unlike(req, res){
+    Trivia.findById(req.params.id).then(trivia => {
+        trivia.likedBy.remove({_id: req.user.profile._id})
+        trivia.save().then(() => {
+            res.redirect(`/trivia/${req.params.id}`)
+        })
+    }).catch(error => {
+        res.redirect('/trivia')
+    })
 }

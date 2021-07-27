@@ -10,6 +10,8 @@ const router = Router()
 router.get('/', triviaCtrl.index)
 router.get('/new', isLoggedIn, triviaCtrl.new)
 router.get('/:id', triviaCtrl.show)
+router.get('/:id/like', isLoggedIn, triviaCtrl.like)
+router.get('/:id/unlike', isLoggedIn, triviaCtrl.unlike)
 router.get('/:triviaId/comments/:commentId/edit', isLoggedIn, triviaCtrl.editComment)
 
 router.post('/', isLoggedIn, triviaCtrl.create)
