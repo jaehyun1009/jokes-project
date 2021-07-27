@@ -15,7 +15,7 @@
             <% } %>
             <h1><%= profile.name %></h1>
             <div id="profile-bottom">
-                <div><p>0 &hearts;</p></div>
+                <div><p><%= totalLikes %> &hearts;</p></div>
                 
                 <% if (user){ %>
                     <% if (!user?.profile._id.equals(profile._id) && !profile.followedBy.includes(user?.profile._id)) { %>
@@ -36,11 +36,9 @@
             <table class="table table-striped mb-0">
                 <tbody>
                 <% jokes.forEach(joke => { %>
-                    <% if (joke.creator.equals(profile._id)){ %>
-                        <tr>
-                            <td><p><a href="/jokes/<%= joke._id %>" target="_blank"><%= joke.setup %></a></p></td>
-                        </tr>
-                    <% } %>
+                    <tr>
+                        <td><p><a href="/jokes/<%= joke._id %>" target="_blank"><%= joke.setup %></a></p></td>
+                    </tr>
                 <% }) %>
                 </tbody>
             </table>
@@ -50,11 +48,9 @@
             <table class="table table-bordered table-striped mb-0">
                 <tbody>
                 <% trivia.forEach(t => { %>
-                    <% if (t.creator.equals(profile._id)){ %>
-                        <tr>
-                            <td><p><a href="/trivia/<%= t._id %>" target="_blank"><%= t.question %></a></p></td>
-                        </tr>
-                    <% } %>
+                    <tr>
+                        <td><p><a href="/trivia/<%= t._id %>" target="_blank"><%= t.question %></a></p></td>
+                    </tr>
                 <% }) %>
                 </tbody>
             </table>

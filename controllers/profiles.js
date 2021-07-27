@@ -23,15 +23,26 @@ function index(req, res){
 
 function show(req, res){
     Profile.findById(req.params.id).then(profile => {
-        Joke.find({}).then(jokes => {
-            Trivia.find({}).then(trivias => {
+        Joke.find({creator: req.params.id}).then(jokes => {
+            Trivia.find({creator: req.params.id}).then(trivias => {
+
+                let totalLikes = 0
+                jokes.forEach(joke => {
+                    totalLikes += joke.likedBy.length
+                })
+                trivias.forEach(trivia => {
+                    totalLikes += trivia.likedBy.length
+                })
+                
                 res.render('profiles/show', {
                     title: `${profile.name}'s Profile`,
                     user: req.user,
                     profile,
                     jokes,
+                    totalLikes,
                     trivia: trivias
                 })
+
             })
         })
     }).catch(error => {
