@@ -17,7 +17,7 @@
             <div id="profile-bottom">
                 <div><p><h2><%= totalLikes %> &hearts;</h2></p></div>
                 <div>
-                    <p><h3><%= profile.followedBy.length %> Followers</h3></p>
+                    <p><h3><a href="" target="_blank" id="view-follower"><%= profile.followedBy.length %> <%= profile.followedBy.length == 1 ? "Follower" : "Followers" %></a></h3></p>
                 </div>
                 <div>
                     <% if (user){ %>

@@ -1,0 +1,36 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main class="page">
+    <h1 class="sub-title">Users following <%= profile.name %></h1>
+    <div class="container py-5 px-3">
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g5 g-sm-3 g-xxl-5 px-sm-5 px-4">
+        <% profile.followedBy.forEach(p => { %>
+            <div class="col mt-4">
+                <div class="card" style="width: 200px;">
+                    <a href="/profiles/<%= p._id %>">
+                        <% if (p.avatar) { %>
+                            <img class="profile-image medium" 
+                                src="<%= p.avatar %>" 
+                                alt="<%= p.name %>'s avatar">
+                        <% } else {%>
+                            <img class="profile-image medium"
+                                src="/images/icons/user.png" 
+                                alt="A placeholder avatar">
+                        <% } %> 
+                    </a>
+                    <div class="card-body">
+                        <p class="card-title fs-5 text-dark mb-0">
+                            <%= p.name %>
+                        </p>
+                        <p class="card-text text-dark fs-6 mt-0">
+                            Joined <%= p.createdAt.toLocaleDateString() %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</main>
+
+<%- include('../partials/footer') %>
