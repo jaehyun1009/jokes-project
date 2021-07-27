@@ -15,20 +15,20 @@
             <% } %>
             <h1><%= profile.name %></h1>
             <div id="profile-bottom">
-                <div><p><h3><%= totalLikes %> &hearts;</h3></p></div>
-                
-                <% if (user){ %>
-                    <% if (!user?.profile._id.equals(profile._id) && !profile.followedBy.includes(user?.profile._id)) { %>
-                        <div>
-                            <a href="/profiles/<%= profile._id %>/follow">Follow</a>
-                        </div>
+                <div><p><h2><%= totalLikes %> &hearts;</h2></p></div>
+                <div>
+                    <p><h3><%= profile.followedBy.length %> Followers</h3></p>
+                </div>
+                <div>
+                    <% if (user){ %>
+                        <% if (!user?.profile._id.equals(profile._id) && !profile.followedBy.includes(user?.profile._id)) { %>
+                            <a href="/profiles/<%= profile._id %>/follow"><h3>Follow</h3></a>
+                        <% } %>
+                        <% if (!user?.profile._id.equals(profile._id) && profile.followedBy.includes(user?.profile._id)) { %>
+                            <a href="/profiles/<%= profile._id %>/unfollow"><h3>Unfollow</h3></a>
+                        <% } %>
                     <% } %>
-                    <% if (!user?.profile._id.equals(profile._id) && profile.followedBy.includes(user?.profile._id)) { %>
-                        <div>
-                            <a href="/profiles/<%= profile._id %>/unfollow">Unfollow</a>
-                        </div>
-                    <% } %>
-                <% } %>
+                </div>
             </div>
         </div>
         <div id="profile-middle">

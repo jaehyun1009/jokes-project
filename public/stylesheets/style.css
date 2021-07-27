@@ -211,6 +211,7 @@ h3 {
 
 #profile-bottom {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
 }
