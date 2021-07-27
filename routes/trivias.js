@@ -16,9 +16,9 @@ router.post('/', isLoggedIn, triviaCtrl.create)
 router.post('/:id', isLoggedIn, triviaCtrl.createComment)
 
 router.delete('/:id', isLoggedIn, triviaCtrl.delete)
-router.delete('/:triviaId/comments/:commentId', triviaCtrl.deleteComment)
+router.delete('/:triviaId/comments/:commentId', isLoggedIn, triviaCtrl.deleteComment)
 
-router.put('/:triviaId/comments/:commentId', triviaCtrl.updateComment)
+router.put('/:triviaId/comments/:commentId', isLoggedIn, triviaCtrl.updateComment)
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
