@@ -8,9 +8,9 @@ export {
 const router = Router()
 
 router.get('/', triviaCtrl.index)
-router.get('/new', triviaCtrl.new)
+router.get('/new', isLoggedIn, triviaCtrl.new)
 router.get('/:id', triviaCtrl.show)
-router.get('/:triviaId/comments/:commentId/edit', triviaCtrl.editComment)
+router.get('/:triviaId/comments/:commentId/edit', isLoggedIn, triviaCtrl.editComment)
 
 router.post('/', isLoggedIn, triviaCtrl.create)
 router.post('/:id', isLoggedIn, triviaCtrl.createComment)

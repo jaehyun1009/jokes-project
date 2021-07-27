@@ -4,7 +4,9 @@ import { Trivia } from '../models/trivia.js'
 
 export {
     index,
-    show
+    show,
+    follow,
+    unfollow
 }
 
 function index(req, res){
@@ -31,6 +33,28 @@ function show(req, res){
                     trivia: trivias
                 })
             })
+        })
+    }).catch(error => {
+        res.redirect('/profiles')
+    })
+}
+
+function follow(req, res){
+    Profile.findById(req.params.id).then(profile => {
+        profile.followedBy.push(req.user.profile)
+        profile.save().then(() => {
+            res.redirect(`/profiles/${req.params.id}`)
+        })
+    }).catch(error => {
+        res.redirect('/profiles')
+    })
+}
+
+function unfollow(req, res){
+    Profile.findById(req.params.id).then(profile => {
+        profile.followedBy.remove({_id: req.user.profile._id})
+        profile.save().then(() => {
+            res.redirect(`/profiles/${req.params.id}`)
         })
     }).catch(error => {
         res.redirect('/profiles')

@@ -8,9 +8,9 @@ export {
 const router = Router()
 
 router.get('/', jokesCtrl.index)
-router.get('/new', jokesCtrl.new)
+router.get('/new', isLoggedIn, jokesCtrl.new)
 router.get('/:id', jokesCtrl.show)
-router.get('/:jokeId/comments/:commentId/edit', jokesCtrl.editComment)
+router.get('/:jokeId/comments/:commentId/edit', isLoggedIn, jokesCtrl.editComment)
 
 router.post('/', isLoggedIn, jokesCtrl.create)
 router.post('/:id', isLoggedIn, jokesCtrl.createComment)
