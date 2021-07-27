@@ -2,7 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Montserrat+Alternates:wght@300&family=Montserrat:wght@300&display=swap');
 
 html {
-  box-sizing: border-box
+  box-sizing: border-box;
+  overflow-y: scroll;
+  scroll-snap-type: y;
 }
 
 /* The Universal Selector */
@@ -236,4 +238,17 @@ h3 {
 
 #view-follower:hover {
   color: crimson;
+}
+
+.page-section {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+}
+
+.second-page {
+  background-color: lightskyblue;
 }
