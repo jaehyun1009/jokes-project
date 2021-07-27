@@ -79,11 +79,11 @@ function createComment(req, res){
       Trivia.findById(req.params.id).then(trivia => {
           trivia.comments.push(comment._id)
           trivia.save().then(() => {
-              res.redirect(`${joke._id}`)
+              res.redirect(`${trivia._id}`)
           })
       })
   }).catch(error => {
-      res.redirect(`/jokes`)
+      res.redirect(`/trivia`)
   })
 
 }
@@ -99,7 +99,7 @@ function editComment(req, res){
           })
       })
   }).catch(error => {
-      res.redirect(`/jokes`)
+      res.redirect(`/trivia`)
   })
 }
 
