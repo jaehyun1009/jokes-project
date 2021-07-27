@@ -9,7 +9,9 @@
 </script>
 
 <main class="page">
-  <div class="like-button"><h2><%= joke.likedBy.length %> Likes</h2><button class="action-button">Like!</button></div>
+  <% if (user && !user?.profile._id.equals(joke.creator._id)){ %>
+    <div class="like-button"><h2><%= joke.likedBy.length %> Likes</h2><button class="action-button">Like Joke!</button></div>
+  <% } %>
   <div class="main-content">
     <h2 class="sub-title"><%= joke.setup %></h2>
     <div class="bottom-section">
@@ -47,7 +49,7 @@
           <td><p><a href='/profiles/<%= comment.commenter._id %>' target="_blank"><%= comment.commenter.name %></a></p></td>
           <td><p><%= comment.content %></p></td>
           <% if (user?.profile._id.equals(comment.commenter._id)){ %>
-          <td><a class="action-link" href='/jokes/<%= joke._id %>/comments/<%= comment._id %>/edit'>Edit</a></td>
+          <td><a class="action-link small-button" href='/jokes/<%= joke._id %>/comments/<%= comment._id %>/edit'>Edit</a></td>
           <td><form action="/jokes/<%= joke._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
             <button class="action-button small-button">Delete</button>
           </form></td>

@@ -45,7 +45,7 @@
           <td><p><a href='/profiles/<%= comment.commenter._id %>' target="_blank"><%= comment.commenter.name %></a></p></td>
           <td><p><%= comment.content %></p></td>
           <% if (user?.profile._id.equals(comment.commenter._id)){ %>
-          <td><a class="action-link" href='/trivia/<%= trivia._id %>/comments/<%= comment._id %>/edit'>Edit</a></td>
+          <td><a class="action-link small-button" href='/trivia/<%= trivia._id %>/comments/<%= comment._id %>/edit'>Edit</a></td>
           <td><form action="/trivia/<%= trivia._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
             <button class="action-button small-button">Delete</button>
           </form></td>
