@@ -6,7 +6,8 @@ export {
     index,
     show,
     follow,
-    unfollow
+    unfollow,
+    showFollowers
 }
 
 function index(req, res){
@@ -66,6 +67,18 @@ function unfollow(req, res){
         profile.followedBy.remove({_id: req.user.profile._id})
         profile.save().then(() => {
             res.redirect(`/profiles/${req.params.id}`)
+        })
+    }).catch(error => {
+        res.redirect('/profiles')
+    })
+}
+
+function showFollowers(req, res){
+    Profile.findById(req.params.id).populate('followedBy').then(profile => {
+        res.render(`profiles/followers`, {
+            title: 'Profile',
+            user: req.user,
+            profile
         })
     }).catch(error => {
         res.redirect('/profiles')

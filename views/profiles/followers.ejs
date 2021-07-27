@@ -7,6 +7,7 @@
         <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g5 g-sm-3 g-xxl-5 px-sm-5 px-4">
         <% profile.followedBy.forEach(p => { %>
             <div class="col mt-4">
+                <%= console.log(p) %> 
                 <div class="card" style="width: 200px;">
                     <a href="/profiles/<%= p._id %>">
                         <% if (p.avatar) { %>
@@ -24,7 +25,7 @@
                             <%= p.name %>
                         </p>
                         <p class="card-text text-dark fs-6 mt-0">
-                            Joined <%= p.createdAt.toLocaleDateString() %>
+                            Joined <%= p.createdAt.toLocaleDateString() %> 
                         </p>
                     </div>
                 </div>
