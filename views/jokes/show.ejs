@@ -24,7 +24,11 @@
     <% } %>
   <% } %>
   </div>
-  <div class="main-content">
+  <% if (joke.isNsfw) { %>
+    <div class="main-content content-nsfw">
+  <% } else { %>
+    <div class="main-content">
+  <% } %>
     <h2 class="sub-title"><%= joke.setup %></h2>
     <div class="bottom-section">
     <% if (joke.punchline) { %>
@@ -45,7 +49,7 @@
       </form>
       <% } %>
     </div>
-    <% if (comments.length > 0) { %> 
+    <% if (comments.length > 0) { %>
     <table class="table table-striped table-margin">
       <thead>
         <tr>

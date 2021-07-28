@@ -179,11 +179,19 @@ p {
   width: 60vw;
   height: 35vh;
   border-radius: 25%;
-  background-color: lightskyblue;
+  background-color: lightblue;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.content-nsfw {
+  background-color: lightcoral;
+}
+
+.content-trivia {
+  background-color: lightgreen;
 }
 
 .main-page-joke {
@@ -271,7 +279,7 @@ h3 {
   0% { color: red; }
   12.5% { color: orange; }
   25% { color: yellow; }
-  37.5% { color: limegreen}
+  37.5% { color: limegreen; }
   50% { color: green; }
   62.5% { color: blue; }
   75% { color: indigo; }

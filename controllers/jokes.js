@@ -54,6 +54,8 @@ function newJoke(req, res){
 
 function create(req, res){
 
+    req.body.isNsfw = !!req.body.isNsfw
+
     if (!req.user){
         res.redirect('/jokes')
     }

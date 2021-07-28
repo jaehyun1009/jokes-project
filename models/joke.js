@@ -14,6 +14,9 @@ const jokeSchema = new Schema({
     punchline: {
         type: String,
     },
+    isNsfw: {
+        type: Boolean
+    },
     creator: {
         type: Schema.Types.ObjectId,
         ref: "Profile"
