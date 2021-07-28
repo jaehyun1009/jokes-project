@@ -1,2 +1,6 @@
-# Potpurri of Ideas
-Temporary Name
+# Double the Fun
+
+## Technologies Used
+
+# Acknowledgements
+https://github.com/15Dkatz/official_joke_api

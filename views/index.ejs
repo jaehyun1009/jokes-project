@@ -13,11 +13,11 @@
     <div class="page-section first-page">
       <h1 style="font-size:8rem;">Welcome to <span class="rainbow-text">Double the Fun</span></h1>
       <h2>Share your favorite jokes and trivia!</h2>
-      <div class="main-page-joke">
-        <h2 class="sub-title">Random Joke</h2>
+      <div class="main-page-joke" onload="getJokes()">
+        <h2 class="sub-title"><%= setup %></h2>
         <div class="bottom-section">
           <button class="action-button" id="show-punchline" onclick="showPunchline()">Show Punchline</button>
-          <p id="punchline" hidden>Hi!</p>
+          <p id="punchline" hidden><%= punchline %></p>
         </div>
       </div>
     </div>

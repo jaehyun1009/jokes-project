@@ -250,6 +250,7 @@ h3 {
 }
 
 .page-section {
+  margin: 400px 0;
   width: 100vw;
   height: 100vh;
   display: flex;
