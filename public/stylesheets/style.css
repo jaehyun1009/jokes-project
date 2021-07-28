@@ -250,7 +250,7 @@ h3 {
 }
 
 .page-section {
-  margin: 400px 0;
+  margin: 200px 0;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -281,4 +281,8 @@ h3 {
 
 .rainbow-text {
   animation: color-change 8s linear 0s infinite;
+}
+
+#mission-statement-box {
+  width: 40vw;
 }
