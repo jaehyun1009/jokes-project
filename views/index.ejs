@@ -1,14 +1,27 @@
 <%- include('./partials/html-head') %>
 <%- include('./partials/nav') %>
 
+<script>
+  function showPunchline(){
+    document.getElementById('show-punchline').style.display = 'none'
+    punchline.hidden = false
+  }
+</script>
+
 <main>
   <div class="all-pages">
-  <div class="page-section">
-    <h1>Menu 1</h1>
-  </div>
-  <div class="page-section second-page">
-    <h1>Menu 2</h1>
-  </div>
+    <div class="page-section">
+      <div class="main-page-joke">
+        <h2 class="sub-title">Random Joke</h2>
+        <div class="bottom-section">
+          <button class="action-button" id="show-punchline" onclick="showPunchline()">Show Punchline</button>
+          <p id="punchline" hidden>Hi!</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-section second-page">
+      <h1>Menu 2</h1>
+    </div>
   </div>
 </main>
 
