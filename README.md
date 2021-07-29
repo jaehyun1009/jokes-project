@@ -1,12 +1,12 @@
 # Double the Fun
 ## Description
-Double the Fun is a web application where people can post, like, and comment on others' jokes and trivia. Anyone can view the site and its contents, but a gmail account is needed in order to access the core functionalities of this web application.
-
-## Motivation
-**Note: Mission statement on the front page is mostly a placeholder information that doesn't have the full story behind the project.**  
+Double the Fun is a web application where people can post, like, and comment on others' jokes and trivia. Anyone can view the site and its contents, but a gmail account is needed in order to access the core functionalities of this web application, such as creating, liking, and commenting on jokes and trivia.
 
 ## Link to Project
 https://project-jokes-1009.herokuapp.com/
+
+### Trello Board
+https://trello.com/b/A0SKz535/unit-2-project-double-the-fun
 
 ## How this application works
 
