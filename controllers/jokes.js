@@ -54,12 +54,11 @@ function newJoke(req, res){
 
 function create(req, res){
 
-    req.body.isNsfw = !!req.body.isNsfw
-
     if (!req.user){
         res.redirect('/jokes')
     }
 
+    req.body.isNsfw = !!req.body.isNsfw
     req.body.creator = req.user.profile._id
     Joke.create(req.body).then(() => {
         res.redirect('/jokes')
@@ -78,7 +77,6 @@ function deleteJoke(req, res){
 function createComment(req, res){
 
     req.body.commenter = req.user.profile._id
-
     Comment.create(req.body).then(comment => {
         Joke.findById(req.params.id).then(joke => {
             joke.comments.push(comment._id)

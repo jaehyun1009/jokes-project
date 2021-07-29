@@ -183,7 +183,7 @@ p {
   width: 60vw;
   height: 35vh;
   padding: 0 25px;
-  border-radius: 25%;
+  border-radius: 100px;
   background-color: lightblue;
   display: flex;
   flex-direction: column;

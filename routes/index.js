@@ -7,8 +7,7 @@ const router = Router()
 
 let jokes = []
 fetch('https://raw.githubusercontent.com/15Dkatz/official_joke_api/master/jokes/index.json')
-  .then(response => response.json())
-  .then(data => {
+  .then(response => response.json()).then(data => {
     jokes = data
   })
   .catch(error => {

@@ -76,7 +76,6 @@ function deleteTrivia(req, res){
 function createComment(req, res){
 
   req.body.commenter = req.user.profile._id
-
   Comment.create(req.body).then(comment => {
       Trivia.findById(req.params.id).then(trivia => {
           trivia.comments.push(comment._id)
