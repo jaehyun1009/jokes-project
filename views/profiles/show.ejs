@@ -33,6 +33,9 @@
         </div>
         <div id="profile-middle">
             <h1>Jokes</h1>
+            <% if (jokes.length == 0) { %>
+                <h1><p>No Jokes</p></h1>
+            <% } %>
             <table class="table table-striped mb-0">
                 <tbody>
                 <% jokes.forEach(joke => { %>
@@ -45,6 +48,9 @@
         </div>
         <div id="profile-right">
             <h1>Trivia</h1>
+            <% if (trivia.length == 0) { %>
+                <h1><p>No Trivia</p></h1>
+            <% } %>
             <table class="table table-striped mb-0">
                 <tbody>
                 <% trivia.forEach(t => { %>
