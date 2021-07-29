@@ -15,8 +15,35 @@ https://trello.com/b/A0SKz535/unit-2-project-double-the-fun
 ![Wireframe](https://trello.com/1/cards/60f9dff3455d4c8d9031d862/attachments/60f9e056e75337124a3dd564/previews/60f9e056e75337124a3dd56c/download)
 
 ## How this application works
+### Main Page
+- Home landing page. This is the screen that the user will see when they load the link to the project.  
+  
+![a](https://i.imgur.com/JU1Ap7Q.png)  
+  
 
-## Takeaways
+- Scrolling down from the home landing page will show the user the mission statement page. **(Note: Mission statement acts as a placeholder for such a page that may be found in real commercial websites)**
+  
+![b](https://i.imgur.com/0yyL70d.png)
+
+### Users Page (View Users)
+- Displays all users by date they joined the site.  
+  
+![c](https://i.imgur.com/b52Dva1.png)
+
+### Profile Page
+![d](https://i.imgur.com/W5DoAaO.png)
+![e](https://i.imgur.com/v7J69BV.png)
+![f](https://i.imgur.com/fTT7WFt.png)
+
+### Jokes Page
+![h](https://i.imgur.com/9KJOpMv.png)
+![j](https://i.imgur.com/jj8JFxO.png)
+![i](https://i.imgur.com/o3LpxXR.png)
+![j](https://i.imgur.com/JZgNyBW.png)
+
+### Trivia Page
+![k](https://i.imgur.com/1gfm7zA.png)
+![l](https://i.imgur.com/h3rDDp6.png)
 
 ## Technologies Used
 - HTML5

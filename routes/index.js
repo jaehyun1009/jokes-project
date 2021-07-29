@@ -4,7 +4,6 @@ export {
   router
 }
 const router = Router()
-import { Profile } from '../models/profile.js'
 
 let jokes = []
 fetch('https://raw.githubusercontent.com/15Dkatz/official_joke_api/master/jokes/index.json')
