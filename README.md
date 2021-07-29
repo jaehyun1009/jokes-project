@@ -8,13 +8,13 @@ https://project-jokes-1009.herokuapp.com/
 ### Trello Board
 https://trello.com/b/A0SKz535/unit-2-project-double-the-fun
 
-## How this application works
-
-## Entity-Relationship-Diagram (ERD)
+### Entity-Relationship-Diagram (ERD)
 ![ERD](https://trello.com/1/cards/610217628c44367310e71069/attachments/610217628c44367310e7106d/previews/610217628c44367310e7107b/download)
 
-## Wireframe
+### Wireframe
 ![Wireframe](https://trello.com/1/cards/60f9dff3455d4c8d9031d862/attachments/60f9e056e75337124a3dd564/previews/60f9e056e75337124a3dd56c/download)
+
+## How this application works
 
 ## Takeaways
 
