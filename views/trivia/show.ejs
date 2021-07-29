@@ -37,7 +37,7 @@
     <div>
       <% if (user) { %>
       <form action="/trivia/<%= trivia._id %>" method="POST">
-        <p style="font-size:2rem;"><textarea name="content" rows="4" cols="80"></textarea><p>
+        <p style="font-size:2rem;"><textarea name="content" rows="4" style="width:100%;"></textarea><p>
         <button class="action-button small-button">Post</button>
       </form>
       <% } %>

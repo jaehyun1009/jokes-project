@@ -12,7 +12,7 @@ fetch('https://raw.githubusercontent.com/15Dkatz/official_joke_api/master/jokes/
     jokes = data
   })
   .catch(error => {
-    console.log('err')
+    console.log('error')
 })
 
 router.get('/', function (req, res){

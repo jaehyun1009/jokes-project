@@ -87,7 +87,7 @@ function createComment(req, res){
             })
         })
     }).catch(error => {
-        res.redirect(`/jokes`)
+        res.redirect(`/jokes/${req.params.id}`)
     })
 
 }

@@ -85,7 +85,7 @@ function createComment(req, res){
           })
       })
   }).catch(error => {
-      res.redirect(`/trivia`)
+      res.redirect(`/trivia/${req.params.id}`)
   })
 
 }
