@@ -80,6 +80,13 @@ https://trello.com/b/A0SKz535/unit-2-project-double-the-fun
 ![All Trivia](https://i.imgur.com/1gfm7zA.png)
 ![l](https://i.imgur.com/h3rDDp6.png)
 
+## Icebox
+- Custom 404
+- Admin feature (admin can delete everyone's posts and comments instead of just the user's)
+- Mouseover text
+- Animation on the mission statement page and between page transitions
+- Opening up channels for live chat on each joke or trivia
+
 ## Technologies Used
 - HTML5
 - CSS3
